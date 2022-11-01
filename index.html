@@ -1,8 +1,28 @@
 <html>
     <head>
-        <title>Benvenuto</title>
+        <title>NNN Seconds Counter</title>
+        <link rel="stylesheet" href="src/styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <script src="src/script.js"></script>
     </head>
     <body>
-        <div align="center">Hello World!</div>
+        <h1>No Nut November Seconds Counter</h1>
+        <div class="content">
+            <p id="today"><b>Date: </b></p>
+            <div class="row">
+                <div id= "nnn-active-column" class="column">
+                    <h3>Can you nut?</h3>
+                    <p id= "nnn-active">---</p>
+                </div>
+                <div id="nnn-time-spent-column" class="column">
+                    <h3>Time spent</h3>
+                    <p id= "nnn-time-spent">---</p>
+                </div>
+                <div id="nnn-time-missing-column" class="column">
+                    <h3>Time left</h3>
+                    <p id= "nnn-time-missing">---</p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
