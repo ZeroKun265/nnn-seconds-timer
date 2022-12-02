@@ -6,6 +6,7 @@ window.addEventListener('load', function () {
     const nnn_time_spent = this.document.getElementById("nnn-time-spent");
     const nnn_time_missing = this.document.getElementById("nnn-time-missing");
     const motivational_message = this.document.getElementById("motivational-message");
+    const motivational_message_copy_button = this.document.getElementById("motivational-message-copy-button");
     motivational_message.innerText = "Hello";
     const year = moment().format("YYYY");
     const first_december = moment(year+"/12/01 00:00:00");
@@ -30,6 +31,8 @@ window.addEventListener('load', function () {
             nnn_time_spent.innerHTML = `${Math.abs(time_spent)}s`;
 
             motivational_message.innerHTML = "Stay Strong Soldier, You can do it!";
+            motivational_message_copy_button.classList.remove("visible");
+            motivational_message_copy_button.classList.add("invisible");
 
         } else {
             nnn_active.innerHTML = "Yes";
@@ -37,9 +40,25 @@ window.addEventListener('load', function () {
             nnn_time_missing.innerHTML = "0";
             nnn_time_spent.innerHTML = "0";
             var time_to_next_november = right_now.diff(first_november_next_year, "seconds")
-            motivational_message.innerHTML = `It's calm, the next mission will be in ${Math.abs(time_to_next_november)}`;
+            motivational_message.innerHTML = `It's calm, the next mission will be in ${Math.abs(time_to_next_november)} seconds`;
+            motivational_message_copy_button.classList.remove("invisible");
+            motivational_message_copy_button.classList.add("visible");
         }
     
     }, 1000);
 })
 
+function copy_text(text_to_copy) {
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(text_to_copy);
+  }
+
+function copy_time_spent() {
+    copy_text(this.document.getElementById("nnn-time-spent").innerHTML)
+}
+function copy_time_missing() {
+    copy_text(this.document.getElementById("nnn-time-missing").innerHTML)
+}
+function copy_time_til_next() {
+    copy_text(this.document.getElementById("motivational-message").innerHTML.toString())
+}
